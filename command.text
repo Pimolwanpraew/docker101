@@ -1,0 +1,64 @@
+//ใช้คำสั่งนี้เพื่อตรวจสอบเวอร์ชั่นของ Docker ที่ติดตั้งอยู่ในระบบของคุณ
+docker -v
+
+//ใช้คำสั่งนี้เพื่อตรวจสอบว่า docker สามารถทำงานได้อย่างถูกต้อง โดยการ
+docker run hello world
+
+//ใช้คำสั่งนี้เพื่อตรวจสอบสถานะของคอนเทนเนอร์ทั้งหมดที่กำลังทำงานอยู่ในระบบของคุณ
+docker ps --all
+
+//ใช้คำสั่งนี้เพื่อตรวจสอบรายการ
+docker images
+
+//
+docker run busybox ping google.com
+
+//หยุด container
+docker stop <container>
+
+//
+docker pull <Image_name>
+
+//
+docker create busybox ping google.com
+
+//
+docker start <container_id_or_name>
+
+// ให้คำสั่งนี้ห้ามลบคอนเทนเนอร์
+
+// ใช้คำสั่งนี้เพื่อลบอิมเมจแสที่ไม่ต้องการอีกต่อไป
+docker system prune
+
+//ใช้คำสั่งนี้เพื่อรันคอนเทนเนอร์ที่ใช้ภาพ "nginx" 
+docker run nginx
+
+
+docker exec -it <container_id_or_name> sh
+
+//ใช้คำสั่งนี้เพื่อเข้าสู่คอนเทนเนอร์ที่กำลังทำงานอยู่และเปิดเชลล์ภายในคอนเทนเนอร์นั้น
+docker exec -it <container_id_or_name> bash
+
+//ใช้คำสั่งนี้เพื่อเข้าสู่คอนเทนเนอร์ที่กำลังทำงานอยู่และเปิดเชลล์ภายในคอนเทนเนอร์นั้น
+cd /user/share/nginx/html
+//
+cat index.html
+ 
+//ใช้คำสั่งนี้เพื่อรันคอนเทนเนอร์ที่ใช้ภาพ "nginx" และเปิดพอร์ต 80 ของคอนเทนเนอร์ไปยังพอร์ต 9000 ของโฮสต์ของคุณ
+docker run -d -p 9000:80 nginx
+
+//ใช้คำสั่งนี้เพื่อตรวจสอบรายละเอียดของอิมเมจ "nginx" ที่คุณได้ดึงมา
+docker image inspect nginx
+
+
+docker image rm <image_id_or_name>
+
+
+docker pull wordpress
+docker pull mysql:5.7
+docker pull phpmyadmin/phpmyadmin
+
+create
+create network create wordpress
+
+docker run --name mysql --network wordpress -e MYSQL_ROOT_PASSWORD=1111 -e MYSQL_DATABASE=wordpress_db -e MYSQL_USER=wordpress -e MYSQL_PASSWORD=wordpress -d mysql:5.7
